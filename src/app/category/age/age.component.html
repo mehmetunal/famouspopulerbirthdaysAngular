@@ -1,0 +1,8 @@
+<main class="container">
+    <div class="form-group">
+        REKLAM
+    </div>
+    <div class="col-md-12" *ngIf="DataSource">
+        <app-people-list-big [DataSource]="DataSource?.data" [title]="DataSource?.title"></app-people-list-big>      
+    </div>
+</main>

@@ -1,0 +1,6 @@
+<div class="col-md-6" *ngIf="DataSource">
+    <h3 class="text-center page-title">Most Popular</h3>
+    <app-people-list 
+    [MoreAllURL]="'/most-populary'" 
+    [DataSource]="DataSource"></app-people-list>
+</div>

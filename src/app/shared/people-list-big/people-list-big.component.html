@@ -1,0 +1,20 @@
+<h3 class="text-center page-title" *ngIf="DataSource">{{title}}</h3>
+<div class="nrow form-group" *ngIf="DataSource">
+    <a *ngFor="let item of DataSource; index as i; first as isFirst;" [routerLink]="['/people/'+item.link]"
+        class="d-b position-relative category-person-item-small" title="{{item.peo_name}}">
+        <img class="card-img-top people-big-img"
+            src="{{item.peo_jpg | firstImages}}"
+             alt="{{item.peo_name}}">
+        <div class="people-name">
+            {{item.peo_name}}, {{item.yas}}
+        </div>
+    </a>
+</div>
+<div class="nrow">
+    <div class="col-6 mr-auto pl-0">
+        <a [routerLink]="['/trending']" class="btn sosyal-btn">Trending</a>
+    </div>
+    <div class="col-6 ml-auto pr-0">
+        <a [routerLink]="['/profession']" class="btn sosyal-btn">Professions</a>
+    </div>
+</div>

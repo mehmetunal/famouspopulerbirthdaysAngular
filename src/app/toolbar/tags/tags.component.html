@@ -1,0 +1,9 @@
+<!--Famous Popularity-->
+<div class="nrow" *ngIf="DataSource">
+  <h3 class="text-center page-title mr40">Famous Popularity</h3>
+  <ul class="etikets">
+    <li *ngFor="let item of DataSource; index as i; first as isFirst" title="{{item.peo_Title}}"><a
+        href="/famous-popularity/{{item.link}}" title="{{item.peo_Title}}">{{item.peo_Title}}</a></li>
+  </ul>
+</div>
+<!--Famous Popularity-->

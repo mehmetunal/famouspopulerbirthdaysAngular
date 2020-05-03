@@ -1,0 +1,6 @@
+<div class="col-md-6" *ngIf="DataSource">
+    <h3 class="text-center page-title">Tomorrow's Birthdays</h3>
+    <app-people-list 
+    [MoreAllURL]="'/tomorrow-birthdays'"
+    [DataSource]="DataSource"></app-people-list>
+</div>

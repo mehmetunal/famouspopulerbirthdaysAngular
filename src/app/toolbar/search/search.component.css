@@ -1,0 +1,32 @@
+app-search {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.search-see {
+    position: absolute;
+    z-index: 99;
+    background: white;
+    top: 34px;
+    left: 17px;
+    width: 100%;
+    border: 1px solid #80808070;
+    cursor: pointer;
+}
+
+.search-result.search-see ul {
+    padding-left: 13px;
+    padding-top: 2px;
+    padding-bottom: 0px;
+    list-style: none;
+    padding-right: 13px;
+    margin-bottom: 0px;
+}
+.search-result.search-see ul li {
+    border-bottom: 1px solid #8080803b;
+    line-height: 27px;
+    font-size: 14px;
+}
+.search-result.search-see ul li:last-child{
+    border: none;
+}

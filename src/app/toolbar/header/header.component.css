@@ -1,0 +1,42 @@
+ul.menu li{
+    display: inline-block;
+    text-align: center;
+} 
+ul.menu li a {
+    display: inline-block;
+    padding: 6px 8px;
+    color: #888;
+}
+
+ul.menu li a:hover {
+    background-color: #E4138E;
+    color: #fff;
+    text-decoration: none;
+}
+
+ul.menu li a i {
+    display: block;
+    text-align: center;
+}
+.bg-ping {
+    margin-top: 0pc;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.search-form {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.bt-search {
+    background-color: #E4138E;
+    border-radius: 0 4px 4px 0 !important;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 31px;
+    border: none;
+}

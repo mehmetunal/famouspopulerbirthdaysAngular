@@ -1,0 +1,16 @@
+<ngb-carousel>
+    <ng-template ngbSlide *ngFor="let item of DataSource; index as i; first as isFirst">
+        <img src="{{item | firstImages}}" 
+            default="https://avkbul.com/sosyal/upload/faces/large-default.jpg" 
+            alt="{{DataSource?.peo_name}}">
+    </ng-template>
+</ngb-carousel>
+
+<!-- 
+<div *ngFor="let item of Images; index as i; first as isFirst"
+                [className]="isFirst ?'carousel-item active':'carousel-item '">
+                <img class="card-img-top d-b w234"
+                    src="http://www.famouspopulerbirthdays.com/upload/{{item | firstImages}}"
+                    default="http://www.famouspopulerbirthdays.com/upload/faces/large-default.jpg"
+                    alt="{{DataSource?.peo_name}}">
+            </div> -->
