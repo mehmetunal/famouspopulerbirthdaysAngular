@@ -30,3 +30,10 @@ app-search {
 .search-result.search-see ul li:last-child{
     border: none;
 }
+
+input.search:focus { 
+    outline: none !important;
+    border-color: unset;
+    box-shadow: unset;
+    border: 1px solid #ced4da;
+}

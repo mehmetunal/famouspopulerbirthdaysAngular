@@ -1,7 +1,8 @@
 <div class="nrow" *ngIf="FirstDataSource">
     <h1 class="text-center page-title mr40">Today's Birthdays</h1>
     <div class="col-md-4 big-wrapper p-l0" *ngIf="FirstDataSource">
-        <a href="/people/{{FirstDataSource?.link}}" class="d-b form-group position-relative" title="{{FirstDataSource?.peo_name}}">
+        <a [routerLink]="['/people/'+FirstDataSource?.link]"
+         class="d-b form-group position-relative" title="{{FirstDataSource?.peo_name}}">
             <img class="card-img-top"
                 src="{{FirstDataSource.peo_jpg | firstImages}}" 
                 default="http://www.famouspopulerbirthdays.com/upload/faces/large-default.jpg"

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector } from '@angular/core';
+import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './toolbar/header/header.component';
 import { FootherComponent } from './toolbar/foother/foother.component';
 import { TagsComponent } from './toolbar/tags/tags.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeService } from 'src/services/home.services';
 import { TodayBirthdaysComponent } from './home/today-birthdays/today-birthdays.component';
 import { MostPopularComponent } from './home/most-popular/most-popular.component';
@@ -35,8 +35,13 @@ import { PeopleListBigComponent } from './shared/people-list-big/people-list-big
 import { TrendingComponent } from './category/trending/trending.component';
 import { BaseComponent } from './base.component';
 import { AppInjector } from 'src/services/app-injector.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './shared/carousel/carousel.component';
+import { LoaderService } from 'src/services/loader-service.service';
+import { LoaderInterceptor } from 'src/interceptor/loader.interceptors';
+import { LoadingComponent } from './shared/loader/loading.component';
+import { ThousandSuffixesPipe } from 'src/pipe/thousandSuffixesPipe.pipe';
+import { OrderByPipe } from 'src/pipe/orderByPipe.pipe';
 
 @NgModule({
   declarations: [
@@ -68,17 +73,28 @@ import { CarouselComponent } from './shared/carousel/carousel.component';
     PeopleListBigComponent,
     TrendingComponent,
     BaseComponent,
-    CarouselComponent
+    CarouselComponent,
+    LoadingComponent,
+    ThousandSuffixesPipe,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule 
+    NgbModule,
   ],
-  exports:[CarouselComponent],
-  providers: [HomeService, CategoryService, AppInjector],
+  exports: [CarouselComponent],
+  providers: [HomeService, CategoryService, AppInjector, LoaderService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    }],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

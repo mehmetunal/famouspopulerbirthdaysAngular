@@ -7,10 +7,11 @@
         <div class="col-lg-3">
             <app-carousel [DataSource]="Images"></app-carousel> 
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-5 mb-10">
             <h3>{{DataSource?.peo_name}}</h3>
             <h4 class="mb-10 "><a [routerLink]="['/profession/'+DataSource?.joplink]" class="color-default"> {{DataSource?.peo_title}}</a></h4>
-            <span class="hastag-most-populer">#{{enPopuler?.pop_rank}} {{enPopuler?.pop_grup}}</span>
+            <span class="hastag-most-populer" *ngIf="enPopuler?.pop_rank" title="#{{enPopuler?.pop_rank | thousandSuff}} {{enPopuler?.pop_grup}}">#{{enPopuler?.pop_rank | thousandSuff}} {{enPopuler?.pop_grup}}</span>
+            <span class="hastag-most-populer" *ngIf="hastag" title="#{{hastag | thousandSuff}} Instagram Hastag">#{{hastag | thousandSuff}} Instagram Hastag</span>
         </div>
         <div class="col-lg-4">
             <ul class="people-prop">
@@ -22,17 +23,17 @@
                 <li>
                     <i class="fa fa-map-marker mr-5" aria-hidden="true"></i>
                     <span>BIRTHPLACE</span>
-                    <a href="/brith-placelink/{{DataSource?.peo_birthplacelink}}">{{DataSource?.peo_birthplace}}</a>
+                    <a [routerLink]="['/brith-placelink/'+DataSource?.peo_birthplacelink]" title="{{DataSource?.peo_birthplace}}">{{DataSource?.peo_birthplace}}</a>
                 </li>
                 <li>
                     <i class="fa fa-hourglass-half mr-3" aria-hidden="true"></i>
                     <span>AGE</span>
-                    <a href="/age/{{DataSource?.yearslink}}">{{DataSource?.yas}} years old</a>
+                    <a [routerLink]="['/age/'+DataSource?.yearslink]" title="{{DataSource?.yas}} years old">{{DataSource?.yas}} years old</a>
                 </li>
                 <li>
                     <i class="fa fa-moon-o mr-5" aria-hidden="true"></i>
                     <span>BIRTH SIGN</span>
-                    <a href="/sun-sign/{{DataSource?.sun_sign_link}}">{{DataSource?.sun_sign}}</a>
+                    <a [routerLink]="['/sun-sign/'+DataSource?.sun_sign_link]" title="{{DataSource?.sun_sign}}">{{DataSource?.sun_sign}}</a>
                 </li>
             </ul>
         </div>
@@ -45,18 +46,19 @@
                 <div class="nrow">
                     <h4 class="page-title">Popularity</h4>
                     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-6"
-                        *ngFor="let item of FamousPopularityDataSource; index as i; first as isFirst">
+                        *ngFor="let item of FamousPopularityDataSource | orderBy: 'pop_rank' : false; index as i; first as isFirst">
                         <div class="form-group btn-rank-wrapper">
-                            <a href="/popularity/{{item.pop_grup_link}}" title="{{item?.pop_grup}}">
-                                {{item?.pop_grup}}
-                                #{{item?.pop_rank}}</a>
+                            <a [routerLink]="['/popularity/'+item.pop_grup_link]"
+                             title="{{item?.pop_grup}} #{{item?.pop_rank}}">
+                                <span class="span-popular">{{item?.pop_grup}}</span>
+                                <span class="shashtag">#{{item?.pop_rank | thousandSuff}}</span></a>
                         </div>
                     </div>
 
                 </div>
             </div>
             <div class="col-lg-5">
-                <p [innerHTML]="DataSource?.peo_about"></p>
+                <p class="icerik-detail" [innerHTML]="DataSource?.peo_about"></p>
             </div>
             <div class="col-lg-4">REKLAM</div>
         </div>

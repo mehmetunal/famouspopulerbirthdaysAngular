@@ -1,6 +1,6 @@
 <ngb-carousel>
     <ng-template ngbSlide *ngFor="let item of DataSource; index as i; first as isFirst">
-        <img src="{{item | firstImages}}" 
+        <img src="{{item | firstImages}}" class="card-img-top"
             default="https://avkbul.com/sosyal/upload/faces/large-default.jpg" 
             alt="{{DataSource?.peo_name}}">
     </ng-template>

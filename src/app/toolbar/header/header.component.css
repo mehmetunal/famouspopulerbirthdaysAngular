@@ -17,7 +17,9 @@ ul.menu li a:hover {
 ul.menu li a i {
     display: block;
     text-align: center;
+    font-size: x-large;
 }
+
 .bg-ping {
     margin-top: 0pc;
     margin-bottom: 0px;
@@ -37,6 +39,9 @@ ul.menu li a i {
     position: absolute;
     top: 0;
     right: 0;
-    height: 31px;
+    /* height: 31px; */
     border: none;
+}
+.logo-sm {
+    height: 55px;
 }

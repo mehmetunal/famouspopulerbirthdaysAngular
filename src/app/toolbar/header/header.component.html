@@ -1,12 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-ping">
     <div class="container">
-        <a href="detail.html" class="navbar-brand d-flex align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                <circle cx="12" cy="13" r="4"></circle>
-            </svg>
-            <strong>Album</strong>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+            <img src="assets/img/logo.png" class="logo-sm"  alt="Famous Populer Birthdays" title="Famous Populer Birthdays">
+            <strong style="color: #df3eaf;" class="hidden-sm hidden-xs" title="Famous Populer Birthdays">Famous Populer Birthdays</strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
             aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,14 +15,14 @@
                     <a class="nav-link" href="/" title="Home"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/popular" title="Popular"><i class="fa fa-star" aria-hidden="true"></i>
+                    <a class="nav-link" [routerLink]="['/popular']" title="Popular"><i class="fa fa-star" aria-hidden="true"></i>
                         Popular</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/trending" title="Trending"><i class="fa fa-line-chart" aria-hidden="true"></i> Trending</a>
+                    <a class="nav-link" [routerLink]="['/trending']" title="Trending"><i class="fa fa-line-chart" aria-hidden="true"></i> Trending</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/people/{{randomURL}}" title="Random"><i class="fa fa-random"
+                    <a class="nav-link" [routerLink]="['/people/'+randomURL]" title="Random"><i class="fa fa-random"
                             aria-hidden="true"></i> Random</a>
                 </li>
             </ul>

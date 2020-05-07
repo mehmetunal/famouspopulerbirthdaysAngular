@@ -26,10 +26,10 @@ export class SearchComponent implements OnInit {
 
   // Push a search term into the observable stream.  
   public searchClient(term: string): void {
-
-    if (term.length < 3)
+    if (term.length < 3) {
+      this.clients = null;
       return;
-
+    }
 
     this.clients = this.service.GETSearch(term)
       .pipe(
@@ -39,6 +39,7 @@ export class SearchComponent implements OnInit {
   }
 
   public onselectClient(term: string): void {
+    debugger;
     this.clients = null;
     this.searchInput.nativeElement.value = '';
     this.router.navigate([`/people/${term}`])
