@@ -2,12 +2,12 @@ import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/services/home.services';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  selector: 'app-mobile-header',
+  templateUrl: './mobile-header.component.html',
+  styleUrls: ['./mobile-header.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent implements OnInit {
+export class MobileHeaderComponent implements OnInit {
   public randomURL: string;
   constructor(private services: HomeService) {
   }
@@ -18,6 +18,5 @@ export class HeaderComponent implements OnInit {
         this.randomURL = res;
       })
     })
-
   }
 }

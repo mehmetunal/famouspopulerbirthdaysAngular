@@ -10,8 +10,8 @@
         <div class="col-lg-5 mb-10">
             <h3>{{DataSource?.peo_name}}</h3>
             <h4 class="mb-10 "><a [routerLink]="['/profession/'+DataSource?.joplink]" class="color-default"> {{DataSource?.peo_title}}</a></h4>
-            <span class="hastag-most-populer" *ngIf="enPopuler?.pop_rank" title="#{{enPopuler?.pop_rank | thousandSuff}} {{enPopuler?.pop_grup}}">#{{enPopuler?.pop_rank | thousandSuff}} {{enPopuler?.pop_grup}}</span>
-            <span class="hastag-most-populer" *ngIf="hastag" title="#{{hastag | thousandSuff}} Instagram Hastag">#{{hastag | thousandSuff}} Instagram Hastag</span>
+            <span class="hastag-most-populer" *ngIf="enPopuler?.pop_rank" title="#{{enPopuler?.pop_rank}} {{enPopuler?.pop_grup}}">#{{enPopuler?.pop_rank}} {{enPopuler?.pop_grup}}</span>
+            <span class="hastag-most-populer" *ngIf="hastag" title="#{{hastag }} Instagram Hastag">#{{hastag}} Instagram Hastag</span>
         </div>
         <div class="col-lg-4">
             <ul class="people-prop">
@@ -51,7 +51,7 @@
                             <a [routerLink]="['/popularity/'+item.pop_grup_link]"
                              title="{{item?.pop_grup}} #{{item?.pop_rank}}">
                                 <span class="span-popular">{{item?.pop_grup}}</span>
-                                <span class="shashtag">#{{item?.pop_rank | thousandSuff}}</span></a>
+                                <span class="shashtag">#{{item?.pop_rank}}</span></a>
                         </div>
                     </div>
 

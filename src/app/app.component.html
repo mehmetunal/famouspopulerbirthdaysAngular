@@ -1,5 +1,6 @@
 <!--Nav-->
-<app-header></app-header>
+<app-header *ngIf="isDevice"></app-header>
+<app-mobile-header *ngIf="!isDevice"></app-mobile-header>
 <!--Nav-->
 <!--Main-->
 <app-loading></app-loading>

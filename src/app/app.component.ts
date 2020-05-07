@@ -1,5 +1,5 @@
-import { Component, Injector } from '@angular/core';
-import { AppInjector } from 'src/services/app-injector.service';
+import { Component } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +8,10 @@ import { AppInjector } from 'src/services/app-injector.service';
 })
 export class AppComponent {
   title = '';
+  deviceInfo = null;
+  public isDevice: boolean = false;
+  constructor(private deviceService: DeviceDetectorService) {
+    this.deviceInfo = this.deviceService.getDeviceInfo();
+    this.isDevice = this.deviceService.isDesktop();
+  }
 }

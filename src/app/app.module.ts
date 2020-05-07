@@ -42,6 +42,9 @@ import { LoaderInterceptor } from 'src/interceptor/loader.interceptors';
 import { LoadingComponent } from './shared/loader/loading.component';
 import { ThousandSuffixesPipe } from 'src/pipe/thousandSuffixesPipe.pipe';
 import { OrderByPipe } from 'src/pipe/orderByPipe.pipe';
+import { HttpErrorInterceptor } from 'src/interceptor/http-error-interceptor.interceptors';
+import { MobileHeaderComponent } from './toolbar/header/mobile/mobile-header.component';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
@@ -76,7 +79,8 @@ import { OrderByPipe } from 'src/pipe/orderByPipe.pipe';
     CarouselComponent,
     LoadingComponent,
     ThousandSuffixesPipe,
-    OrderByPipe
+    OrderByPipe,
+    MobileHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +88,7 @@ import { OrderByPipe } from 'src/pipe/orderByPipe.pipe';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    DeviceDetectorModule.forRoot()
   ],
   exports: [CarouselComponent],
   providers: [HomeService, CategoryService, AppInjector, LoaderService,
@@ -91,6 +96,10 @@ import { OrderByPipe } from 'src/pipe/orderByPipe.pipe';
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,
       multi: true
+    }, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true,
     }],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-ping">
+    <div class="container">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+            <img src="assets/img/logo.png" class="logo-sm" alt="Famous Populer Birthdays"
+                title="Famous Populer Birthdays">
+            <strong style="color: #df3eaf;" class="hidden-sm hidden-xs" title="Famous Populer Birthdays">Famous Populer
+                Birthdays</strong>
+        </a>
+
+    </div>
+</nav>
+
+<ul class="navbar mobile-nav navbar-nav ml-auto my-2 my-md-0 menu mr-26">
+    <li class="nav-item">
+        <a class="nav-link" href="/" title="Home"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/popular']" title="Popular"><i class="fa fa-star" aria-hidden="true"></i>
+            Popular</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/trending']" title="Trending"><i class="fa fa-line-chart"
+                aria-hidden="true"></i> Trending</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/people/'+randomURL]" title="Random"><i class="fa fa-random"
+                aria-hidden="true"></i> Random</a>
+    </li>
+</ul>

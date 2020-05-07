@@ -3,7 +3,6 @@ import { HomeService } from 'src/services/home.services';
 import { ActivatedRoute } from '@angular/router';
 import { BaseComponent } from '../base.component';
 import { HttpClient } from '@angular/common/http';
-import { OrderByPipe } from 'src/pipe/orderByPipe.pipe';
 
 @Component({
     selector: 'app-people-detail',
@@ -24,7 +23,10 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
     private url: string;
     public hastag: string = "";
 
-    constructor(private route: ActivatedRoute, private http: HttpClient) {
+    constructor(
+        private route: ActivatedRoute, 
+        private http: HttpClient
+        ) {
         super();
         this.route.params.subscribe(routeParams => {
             this.url = routeParams["url"];
@@ -65,11 +67,15 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
         this.GETFamousPopularityById(res.data.id);
     }
 
-    private InstagramHashTag(key: string) {
-        key = key.replace(" ","").toLowerCase();
-        this.http.get(`https://www.instagram.com/explore/tags/${key}/?__a=1`).subscribe((s: any) => {
+    private InstagramHashTag(key: string): void {
+        if (key === undefined || key === null)
+            return;
+        key = key.replace(" ", "").toLowerCase();
+        this.http.get(`https://www.instagram.com/explore/tags/${key}/?__a=1`)
+        .subscribe((s: any) => {
             this.hastag += s.graphql.hashtag.edge_hashtag_to_media.count;
         })
+
     }
 
 
@@ -100,7 +106,7 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
     private GETFamousPopularityById(id: number): void {
         this.homeService.GETFamousPopularityById(id).subscribe((res: Array<any>) => {
             this.FamousPopularityDataSource = res;
-            let orderBy =res.sort((a, b) => b["pop_rank"] > a["pop_rank"] ? 1 : b["pop_rank"] === a["pop_rank"] ? 0 : -1);
+            let orderBy = res.sort((a, b) => b["pop_rank"] > a["pop_rank"] ? 1 : b["pop_rank"] === a["pop_rank"] ? 0 : -1);
             this.enPopuler = orderBy[0];
         })
     }

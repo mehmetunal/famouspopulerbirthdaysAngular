@@ -381,3 +381,7 @@ ol.carousel-indicators li {
     }
   }
   
+
+  .people-img-mobile {
+    width: 189px !important;
+}

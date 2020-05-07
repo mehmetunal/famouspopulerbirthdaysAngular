@@ -1,4 +1,5 @@
 import { ViewEncapsulation, Component, OnInit, Input } from '@angular/core';
+import { BaseComponent } from 'src/app/base.component';
 
 @Component({
     selector: 'app-people-list-big',
@@ -6,7 +7,9 @@ import { ViewEncapsulation, Component, OnInit, Input } from '@angular/core';
     styleUrls: ['./people-list-big.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class PeopleListBigComponent implements OnInit {
+export class PeopleListBigComponent /*extends BaseComponent*/ implements OnInit {
+    //people-img-mobile
+    //public imgClass = "people-big-img";
 
     private _dataSource: any;
     @Input()
@@ -24,6 +27,11 @@ export class PeopleListBigComponent implements OnInit {
     get title(): string { return this._title; }
 
     constructor() {
+        // super();
+        // if (!this.isDevice) {
+        //     // this.imgClass = "people-big-img-mobile";
+        //     this.imgClass = "";
+        // }
     }
 
     ngOnInit(): void {

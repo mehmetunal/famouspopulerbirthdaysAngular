@@ -11,7 +11,6 @@ export class ThousandSuffixesPipe implements PipeTransform {
         if (Number.isNaN(input)) {
             return null;
         }
-
         if (input < 1000) {
             return input;
         }
