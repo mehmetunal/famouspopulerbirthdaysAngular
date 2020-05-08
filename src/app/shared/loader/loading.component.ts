@@ -11,9 +11,6 @@ export class LoadingComponent implements OnInit {
     constructor(private loaderService: LoaderService) {
         this.loaderService.isLoading.subscribe((v) => {
             this.loading = v;
-            setTimeout(function(){
-                document.body.removeAttribute('style');
-            },1000)
         });
     }
     ngOnInit() {

@@ -27,7 +27,6 @@ export class LoaderInterceptor implements HttpInterceptor {
                 .subscribe(
                     event => {
                         if (event instanceof HttpResponse) {
-                            document.body.setAttribute('style','overflow:hidden');
                             this.removeRequest(req);
                             observer.next(event);
                         }

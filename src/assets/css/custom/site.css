@@ -381,6 +381,9 @@ ol.carousel-indicators li {
     }
   }
   
+  .pt-31 {
+    padding-top: 31px
+  }
 
   .people-img-mobile {
     width: 189px !important;
