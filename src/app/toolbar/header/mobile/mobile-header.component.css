@@ -28,6 +28,7 @@ ul.menu li a i {
     margin-bottom: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
+    background-color:hsl(0, 0%, 94%)!important;
 }
 
 .search-form {
@@ -66,4 +67,13 @@ ul.menu li a i {
     overflow: hidden;
     padding: 0px;
     margin-bottom: 0px !important;
+}
+
+app-mobile-header {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+app-mobile-header nav .container a {
+    margin: auto;
 }

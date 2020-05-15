@@ -1,17 +1,24 @@
-<main class="container">
-    <div class="form-group pt-31">
-        REKLAM
+<main [className]="isDevice?'container':'container pt-61'">
+    <div class="form-group text-center">
+        <!-- Yatay_Esnek -->
+        <ng-adsense [adClient]="'ca-pub-7545098926180612'" [adSlot]="9232589350" [display]="'block'" [adFormat]="'auto'"
+            [className]="'adsbygoogle'">
+        </ng-adsense>
     </div>
     <!--People Detail-->
     <div class="nrow mb-10">
         <div class="col-lg-3">
-            <app-carousel [DataSource]="Images"></app-carousel> 
+            <app-carousel [DataSource]="Images"></app-carousel>
         </div>
         <div class="col-lg-5 mb-10">
             <h3>{{DataSource?.peo_name}}</h3>
-            <h4 class="mb-10 "><a [routerLink]="['/profession/'+DataSource?.joplink]" class="color-default"> {{DataSource?.peo_title}}</a></h4>
-            <span class="hastag-most-populer" *ngIf="enPopuler?.pop_rank" title="#{{enPopuler?.pop_rank}} {{enPopuler?.pop_grup}}">#{{enPopuler?.pop_rank}} {{enPopuler?.pop_grup}}</span>
-            <span class="hastag-most-populer" *ngIf="hastag" title="#{{hastag }} Instagram Hastag">#{{hastag}} Instagram Hastag</span>
+            <h4 class="mb-10 "><a [routerLink]="['/profession/'+DataSource?.joplink]" class="color-default">
+                    {{DataSource?.peo_title}}</a></h4>
+            <span class="hastag-most-populer" *ngIf="enPopuler?.pop_rank"
+                title="#{{enPopuler?.pop_rank}} {{enPopuler?.pop_grup}}">#{{enPopuler?.pop_rank}}
+                {{enPopuler?.pop_grup}}</span>
+            <span class="hastag-most-populer" *ngIf="hastag" title="#{{hastag }} Instagram Hastag">#{{hastag}} Instagram
+                Hastag</span>
         </div>
         <div class="col-lg-4">
             <ul class="people-prop">
@@ -23,17 +30,20 @@
                 <li>
                     <i class="fa fa-map-marker mr-5" aria-hidden="true"></i>
                     <span>BIRTHPLACE</span>
-                    <a [routerLink]="['/brith-placelink/'+DataSource?.peo_birthplacelink]" title="{{DataSource?.peo_birthplace}}">{{DataSource?.peo_birthplace}}</a>
+                    <a [routerLink]="['/brith-placelink/'+DataSource?.peo_birthplacelink]"
+                        title="{{DataSource?.peo_birthplace}}">{{DataSource?.peo_birthplace}}</a>
                 </li>
                 <li>
                     <i class="fa fa-hourglass-half mr-3" aria-hidden="true"></i>
                     <span>AGE</span>
-                    <a [routerLink]="['/age/'+DataSource?.yearslink]" title="{{DataSource?.yas}} years old">{{DataSource?.yas}} years old</a>
+                    <a [routerLink]="['/age/'+DataSource?.yearslink]"
+                        title="{{DataSource?.yas}} years old">{{DataSource?.yas}} years old</a>
                 </li>
                 <li>
                     <i class="fa fa-moon-o mr-5" aria-hidden="true"></i>
                     <span>BIRTH SIGN</span>
-                    <a [routerLink]="['/sun-sign/'+DataSource?.sun_sign_link]" title="{{DataSource?.sun_sign}}">{{DataSource?.sun_sign}}</a>
+                    <a [routerLink]="['/sun-sign/'+DataSource?.sun_sign_link]"
+                        title="{{DataSource?.sun_sign}}">{{DataSource?.sun_sign}}</a>
                 </li>
             </ul>
         </div>
@@ -44,12 +54,14 @@
         <div class="nrow">
             <div class="col-lg-3">
                 <div class="nrow">
-                    <h4 class="page-title">Popularity</h4>
+                    <h4 class="page-title">Popularity <a [routerLink]="['/trending']" *ngIf="DataSource?.trending_no"
+                            class="btn btn-sm btn-light btn-trend text-success ml-2"><i aria-hidden="true"
+                                class="fa fa-chevron-circle-up"></i> {{ DataSource?.trending_no }}</a></h4>
                     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-6"
                         *ngFor="let item of FamousPopularityDataSource | orderBy: 'pop_rank' : false; index as i; first as isFirst">
                         <div class="form-group btn-rank-wrapper">
                             <a [routerLink]="['/popularity/'+item.pop_grup_link]"
-                             title="{{item?.pop_grup}} #{{item?.pop_rank}}">
+                                title="{{item?.pop_grup}} #{{item?.pop_rank}}">
                                 <span class="span-popular">{{item?.pop_grup}}</span>
                                 <span class="shashtag">#{{item?.pop_rank}}</span></a>
                         </div>
@@ -60,39 +72,40 @@
             <div class="col-lg-5">
                 <p class="icerik-detail" [innerHTML]="DataSource?.peo_about"></p>
             </div>
-            <div class="col-lg-4">REKLAM</div>
+            <div class="col-lg-4 text-center">
+                <!-- Kare_Esnek -->
+                <ng-adsense [adClient]="'ca-pub-7545098926180612'" [adSlot]="2914948237" [display]="'block'"
+                    [adFormat]="'auto'" [className]="'adsbygoogle'">
+                </ng-adsense>
+            </div>
         </div>
         <div class="nrow m-t-50">
             <!--( Pop Singer ) Jop-->
             <div class="col-md-6" *ngIf="JobDataSource">
                 <h3 class="text-center page-title">( {{DataSource?.peo_title}} ) Jop</h3>
-                <app-people-list 
-                [MoreAllURL]="'/job/'+DataSource?.joplink"
-                [DataSource]="JobDataSource"></app-people-list>
+                <app-people-list [MoreAllURL]="'/job/'+DataSource?.joplink" [DataSource]="JobDataSource">
+                </app-people-list>
             </div>
             <!--( Pop Singer ) Jop-->
             <!--( 25 ) Age Years Old-->
             <div class="col-md-6" *ngIf="AgeDataSource">
                 <h3 class="text-center page-title">( {{DataSource?.yas}} ) Age Years Old</h3>
-                <app-people-list
-                [MoreAllURL]="'/age/'+DataSource?.yearslink"
-                [DataSource]="AgeDataSource"></app-people-list>
+                <app-people-list [MoreAllURL]="'/age/'+DataSource?.yearslink" [DataSource]="AgeDataSource">
+                </app-people-list>
             </div>
             <!--( 25 ) Age Years Old-->
             <!--( Taurus ) Birth Sign-->
             <div class="col-md-6" *ngIf="SunSignDataSource">
                 <h3 class="text-center page-title">( {{DataSource?.sun_sign}} ) Birth Sign</h3>
-                <app-people-list 
-                [MoreAllURL]="'/sun-sign/'+DataSource?.sun_sign_link"
-                [DataSource]="SunSignDataSource"></app-people-list>
+                <app-people-list [MoreAllURL]="'/sun-sign/'+DataSource?.sun_sign_link" [DataSource]="SunSignDataSource">
+                </app-people-list>
             </div>
             <!--( Taurus ) Birth Sign-->
             <!--Long Island , NY Birthplace-->
             <div class="col-md-6" *ngIf="BirthPlaceDataSource">
                 <h3 class="text-center page-title">{{DataSource?.peo_birthplace}} Birthplace</h3>
-               <app-people-list 
-               [MoreAllURL]="'/brith-placelink/'+DataSource?.peo_birthplacelink"
-               [DataSource]="BirthPlaceDataSource"></app-people-list>
+                <app-people-list [MoreAllURL]="'/brith-placelink/'+DataSource?.peo_birthplacelink"
+                    [DataSource]="BirthPlaceDataSource"></app-people-list>
             </div>
             <!--Long Island , NY Birthplace-->
             <!--Famous Popularity-->

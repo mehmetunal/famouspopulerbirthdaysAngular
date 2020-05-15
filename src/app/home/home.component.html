@@ -1,30 +1,45 @@
-<main class="container">
-<div class="form-group pt-31">
-    REKLAM
-</div>
-<!--Today's Birthdays-->
-<app-today-birthdays></app-today-birthdays>
-<!--Today's Birthdays-->
-<div class="form-group pt-31">
-    REKLAM
-</div>
-<div class="nrow">
-    <!--Most Popular-->
-    <app-most-popular></app-most-popular>
-    <!--Most Popular-->
-    <!--Tomorrow's Birthdays-->
-    <app-tomorrow-birthdays></app-tomorrow-birthdays>
-    <!--Tomorrow's Birthdays-->
-    <!--Popular By Age-->
-    <app-popular-by-age></app-popular-by-age>
-    <!--Popular By Age-->
-    <div class="col-md-6 pt-31">
-        REKLAM
+<main [className]="isDevice?'container':'container pt-61'">
+    <div class="form-group text-center text-center">
+        <!-- Yatay_Esnek -->
+        <ng-adsense [adClient]="'ca-pub-7545098926180612'" [adSlot]="9232589350" [display]="'block'" [adFormat]="'auto'"
+            [className]="'adsbygoogle'">
+        </ng-adsense>
     </div>
-    <!--Popular By Age-->
-</div>
-<!-- <div class="form-group">
+    <!--Today's Birthdays-->
+    <app-today-birthdays></app-today-birthdays>
+    <!--Today's Birthdays-->
+    <div class="form-group pt-31 text-center">
+        <!-- Yatay_Esnek -->
+        <ng-adsense [adClient]="'ca-pub-7545098926180612'" [adSlot]="9232589350" [display]="'block'" [adFormat]="'auto'"
+            [className]="'adsbygoogle'">
+        </ng-adsense>
+    </div>
+    <div class="nrow">
+        <!--Most Popular-->
+        <app-most-popular></app-most-popular>
+        <!--Most Popular-->
+        <!--Tomorrow's Birthdays-->
+        <app-tomorrow-birthdays></app-tomorrow-birthdays>
+        <!--Tomorrow's Birthdays-->
+        <div [className]="isDevice?'col-md-12 pt-31':'col-md-12'">
+            <!-- Kategori Sıra İçi -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7545098926180612"
+                data-ad-slot="9296446573" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <!--Popular By Age-->
+        <app-popular-by-age></app-popular-by-age>
+        <!--Popular By Age-->
+        <app-home-trending></app-home-trending>
+        <!-- <div [className]="isDevice?'col-md-6 pt-31':'col-md-6'">
+        REKLAM
+    </div> -->
+        <!--Popular By Age-->
+    </div>
+    <!-- <div class="form-group">
     REKLAM
 </div> -->
-<!-- <app-tags></app-tags> -->
+    <!-- <app-tags></app-tags> -->
 </main>

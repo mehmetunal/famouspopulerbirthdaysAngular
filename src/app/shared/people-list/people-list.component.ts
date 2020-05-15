@@ -1,5 +1,5 @@
 import { ViewEncapsulation, Component, OnInit, Input } from '@angular/core';
-import { BaseComponent } from 'src/app/base.component';
+import { ChildBaseComponent } from 'src/app/child-base.component.';
 
 @Component({
     selector: 'app-people-list',
@@ -7,9 +7,8 @@ import { BaseComponent } from 'src/app/base.component';
     styleUrls: ['./people-list.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class PeopleListComponent  implements OnInit {
-    // //people-img-mobile
-    // public imgClass = "people-img";
+export class PeopleListComponent extends ChildBaseComponent  implements OnInit {
+
     private _dataSource: any;
     @Input()
     set DataSource(dataSource: any) {
@@ -25,11 +24,7 @@ export class PeopleListComponent  implements OnInit {
     get MoreAllURL(): string { return this._moreAllURL; }
 
     constructor() {
-        // super();
-        // if (!this.isDevice) {
-        //     // this.imgClass = "people-img-mobile";
-        //     this.imgClass = "";
-        // }
+         super();
     }
 
     ngOnInit(): void {

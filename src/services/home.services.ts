@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class HomeService {
 
-    private baseApiUrl = "//api.avkbul.com/api/home/";
+    private baseApiUrl = "//api.famouspopulerbirthdays.com/api/home/";
     // private baseApiUrl = "//localhost:60424/api/home/";
     public RandomSub: Subject<any> = new Subject<any>();
 

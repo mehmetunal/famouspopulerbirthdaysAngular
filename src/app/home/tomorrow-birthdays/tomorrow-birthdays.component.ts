@@ -1,4 +1,5 @@
 import { ViewEncapsulation, Component, OnInit } from '@angular/core';
+import { ChildBaseComponent } from 'src/app/child-base.component.';
 import { HomeService } from 'src/services/home.services';
 
 @Component({
@@ -7,12 +8,12 @@ import { HomeService } from 'src/services/home.services';
   styleUrls: ['./tomorrow-birthdays.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class TomorrowBirthdaysComponent implements OnInit {
+export class TomorrowBirthdaysComponent extends ChildBaseComponent implements OnInit {
 
   public DataSource: any;
 
   constructor(private homeService: HomeService) {
-
+    super();
   }
 
   ngOnInit(): void {

@@ -1,7 +1,5 @@
 import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/services/category.services';
-import { HomeService } from 'src/services/home.services';
-import { ActivatedRoute } from '@angular/router';
 import { BaseComponent } from 'src/app/base.component';
 
 @Component({
@@ -14,7 +12,7 @@ export class ToDaysBirthDaysComponent extends BaseComponent implements OnInit {
 
     public DataSource: any;
 
-    constructor(private route: ActivatedRoute, private service: CategoryService) {
+    constructor(private service: CategoryService) {
         super();
     }
 

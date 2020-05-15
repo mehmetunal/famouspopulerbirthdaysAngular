@@ -45,6 +45,8 @@ import { OrderByPipe } from 'src/pipe/orderByPipe.pipe';
 import { HttpErrorInterceptor } from 'src/interceptor/http-error-interceptor.interceptors';
 import { MobileHeaderComponent } from './toolbar/header/mobile/mobile-header.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { HomeTrendingComponent } from './home/home-trending/home-trending.component';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     TrendingComponent,
     BaseComponent,
     CarouselComponent,
+    HomeTrendingComponent,
     LoadingComponent,
     ThousandSuffixesPipe,
     OrderByPipe,
@@ -88,7 +91,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    DeviceDetectorModule.forRoot()
+    DeviceDetectorModule.forRoot(),
+    AdsenseModule.forRoot()
   ],
   exports: [CarouselComponent],
   providers: [HomeService, CategoryService, AppInjector, LoaderService,

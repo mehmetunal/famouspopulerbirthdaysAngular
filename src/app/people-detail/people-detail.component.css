@@ -27,3 +27,9 @@ h2 {
     font-weight: 400;
 }
 
+.btn-trend {
+    border: 1px solid #8080806e;
+}
+.btn-trend:hover {
+    border: 1px solid #8080806e;
+}

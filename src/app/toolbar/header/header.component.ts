@@ -18,6 +18,5 @@ export class HeaderComponent implements OnInit {
         this.randomURL = res;
       })
     })
-
   }
 }

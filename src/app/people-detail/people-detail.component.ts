@@ -1,8 +1,7 @@
 import { ViewEncapsulation, Component, OnInit } from '@angular/core';
-import { HomeService } from 'src/services/home.services';
 import { ActivatedRoute } from '@angular/router';
-import { BaseComponent } from '../base.component';
 import { HttpClient } from '@angular/common/http';
+import { BaseComponent } from '../base.component';
 
 @Component({
     selector: 'app-people-detail',
@@ -23,33 +22,19 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
     private url: string;
     public hastag: string = "";
 
-    constructor(
-        private route: ActivatedRoute, 
+    constructor(private route: ActivatedRoute,
         private http: HttpClient
-        ) {
+    ) {
         super();
         this.route.params.subscribe(routeParams => {
             this.url = routeParams["url"];
-            if (this.url) {
-                this.init()
-            } else {
-                this.onRandom();
-            }
-
-            this.homeService.RandomSub.next(true);
+            this.init()
         });
     }
 
     ngOnInit(): void {
         // this.init();
     }
-
-    public onRandom(): void {
-        this.homeService.GETRandom().subscribe((res: any) => {
-            this.DataLoad(res);
-        })
-    }
-
     public init(): void {
         this.homeService.GETDetail(this.url).subscribe((res: any) => {
             this.DataLoad(res);
@@ -72,9 +57,9 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
             return;
         key = key.replace(" ", "").toLowerCase();
         this.http.get(`https://www.instagram.com/explore/tags/${key}/?__a=1`)
-        .subscribe((s: any) => {
-            this.hastag += s.graphql.hashtag.edge_hashtag_to_media.count;
-        })
+            .subscribe((s: any) => {
+                this.hastag += s.graphql.hashtag.edge_hashtag_to_media.count;
+            })
 
     }
 

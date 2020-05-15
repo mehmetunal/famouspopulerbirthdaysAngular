@@ -1,21 +1,18 @@
 <div class="nrow form-group">
-   
-    <a *ngFor="let item of DataSource; index as i; first as isFirst; let last = last;" 
-        [routerLink]="last ?  [MoreAllURL]  : ['/people/'+item.link]"
-        class="d-b position-relative person-item-small" 
+    <a *ngFor="let item of DataSource; index as i; first as isFirst; let last = last;"
+        [routerLink]="last ?  [MoreAllURL]  : ['/people/'+item.link]" class="d-b position-relative person-item-small"
         title="{{item.peo_name}}">
-        <img 
-            class="card-img-top people-img"
-            src="{{item.peo_jpg | firstImages}}"
-            default="https://www.avkbul.com/sosyal/upload/faces/large-default.jpg" 
+        <!--isDevice-->
+        <img [className]="isDevice ? 'card-img-top people-img' : 'card-img-top people-img-mobile' "
+            src="{{item.peo_jpg | firstImages}}" default="/upload/faces/large-default.jpg"
             alt="{{item.peo_name}}">
-            <div 
-            class="people-name">
+        <!--isDevice-->
+        <!--isMobile-->
+
+        <!--isMobile-->
+        <div class="people-name">
             {{item.peo_name}}, {{item.yas}}
         </div>
 
     </a>
-
 </div>
-
-

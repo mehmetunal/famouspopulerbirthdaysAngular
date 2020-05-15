@@ -1,0 +1,18 @@
+<div [className]="isDevice ? 'col-md-6' : 'form-group' " *ngIf="DataSource">
+    <h3 class="text-center page-title">Trending</h3>
+    <div class="nrow form-group">
+        <a *ngFor="let item of DataSource; index as i; first as isFirst; let last = last;"
+            [routerLink]="last ?  ['trending']  : ['/people/'+item.link]"
+            class="d-b position-relative person-item-small" title="{{item.peo_name}}">
+            <!--isDevice-->
+            <img [className]="isDevice ? 'card-img-top people-img' : 'card-img-top people-img-mobile' "
+                src="{{item.peo_jpg | firstImages}}"
+                default="/upload/faces/large-default.jpg" alt="{{item.peo_name}}">
+            <!--isDevice-->
+            <div class="people-name">
+                {{item.peo_name}}, {{item.yas}} <br>
+                <i class="fa fa-chevron-circle-up" aria-hidden="true"></i> {{item.trending_no}}
+            </div>
+        </a>
+    </div>
+</div>

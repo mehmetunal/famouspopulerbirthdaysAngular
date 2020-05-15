@@ -2,7 +2,8 @@
 <div class="nrow form-group" *ngIf="DataSource">
     <a *ngFor="let item of DataSource; index as i; first as isFirst;" [routerLink]="['/people/'+item.link]"
         class="d-b position-relative category-person-item-small" title="{{item.peo_name}}">
-        <img class="card-img-top people-big-img"
+        <img 
+            [className]="isDevice ? 'card-img-top people-big-img' : 'card-img-top people-big-img-mobile' "
             src="{{item.peo_jpg | firstImages}}"
              alt="{{item.peo_name}}">
         <div class="people-name">

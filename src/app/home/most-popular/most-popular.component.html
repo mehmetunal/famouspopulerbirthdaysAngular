@@ -1,4 +1,6 @@
-<div class="col-md-6" *ngIf="DataSource">
+<div 
+    [className]="isDevice ? 'col-md-6' : 'form-group' "
+    *ngIf="DataSource">
     <h3 class="text-center page-title">Most Popular</h3>
     <app-people-list 
     [MoreAllURL]="'/most-populary'" 

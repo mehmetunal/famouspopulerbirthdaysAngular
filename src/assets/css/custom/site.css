@@ -12,9 +12,9 @@ a,a:hover {
     text-decoration: none;
 }
 
-.bg-ping {
-    background-color:rgba(238,238,238,.95) !important; /*#db488c!important;*/
-}
+/*.bg-ping {
+    background-color:rgba(238,238,238,.95) !important; *//*#db488c!important;*/
+/* } */
 
 .mp-0{
     margin: 0px !important;
@@ -189,6 +189,7 @@ ul.etikets {
     padding: 2px;
     font-size: 16px;
     cursor: pointer;
+    overflow-wrap: anywhere;
 } 
 .btn-rank-wrapper:hover {
     background-color: #e6e6e6c7;
@@ -241,6 +242,7 @@ ul.people-prop li:last-child{
  .dwrapper {
     background: #bebebe14;
     border: 1px solid #bebebe57;
+    padding-top: 10px;
  }
 
  footer{
@@ -385,6 +387,10 @@ ol.carousel-indicators li {
     padding-top: 31px
   }
 
-  .people-img-mobile {
-    width: 189px !important;
+.card-img-top {
+    border-radius: unset !important;
+}
+
+.pt-61 {
+    padding-top: 61px;
 }

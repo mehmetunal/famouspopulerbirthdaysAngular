@@ -1,5 +1,5 @@
 import { ViewEncapsulation, Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import {  Observable } from 'rxjs';
 import { HomeService } from 'src/services/home.services';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';

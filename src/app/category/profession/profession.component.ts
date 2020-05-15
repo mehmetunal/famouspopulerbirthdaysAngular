@@ -1,7 +1,6 @@
 import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/services/category.services';
-import { HomeService } from 'src/services/home.services';
-import { BaseComponent } from 'src/app/base.component';
+import { ChildBaseComponent } from 'src/app/child-base.component.';
 
 @Component({
     selector: 'app-profession',
@@ -9,7 +8,7 @@ import { BaseComponent } from 'src/app/base.component';
     styleUrls: ['./profession.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class ProfessionComponent extends BaseComponent implements OnInit {
+export class ProfessionComponent extends ChildBaseComponent implements OnInit {
     public DataSource: any;
     public title: string = "Professions";
     constructor(private service: CategoryService) {

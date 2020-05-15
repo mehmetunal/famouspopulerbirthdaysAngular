@@ -25,6 +25,7 @@ ul.menu li a i {
     margin-bottom: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
+    background-color:rgba(238,238,238,.95) !important;/*#db488c!important;*/
 }
 
 .search-form {
@@ -44,6 +45,10 @@ ul.menu li a i {
 }
 .logo-sm {
     height: 50px;
+}
+
+.mr-27 {
+    margin-right: 7px;
 }
 
 .mr-7 {

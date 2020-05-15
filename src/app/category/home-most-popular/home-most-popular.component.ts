@@ -2,6 +2,7 @@ import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/services/home.services';
 import { CategoryService } from 'src/services/category.services';
 import { BaseComponent } from 'src/app/base.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home-most-popular',

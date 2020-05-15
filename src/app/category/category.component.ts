@@ -1,5 +1,4 @@
 import { ViewEncapsulation, Component, OnInit } from '@angular/core';
-import { HomeService } from 'src/services/home.services';
 import { ActivatedRoute } from '@angular/router';
 import { BaseComponent } from '../base.component';
 
@@ -9,7 +8,7 @@ import { BaseComponent } from '../base.component';
     styleUrls: ['./category.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class CategoryComponent extends BaseComponent  implements OnInit {
+export class CategoryComponent extends BaseComponent implements OnInit {
     public DataSource: any;
     public title: string;
     private url: string;
