@@ -3,6 +3,7 @@ import { CategoryService } from 'src/services/category.services';
 import { HomeService } from 'src/services/home.services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BaseComponent } from 'src/app/base.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-birth-place',
@@ -10,12 +11,14 @@ import { BaseComponent } from 'src/app/base.component';
     styleUrls: ['./birth-place.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class BirthPlaceComponent extends BaseComponent  implements OnInit {
+export class BirthPlaceComponent extends BaseComponent implements OnInit {
 
     public DataSource: any;
     private url: string;
 
-    constructor(private route: ActivatedRoute,private service: CategoryService) {
+    constructor(private route: ActivatedRoute,
+        private service: CategoryService,
+        private titleService: Title) {
         super();
         this.route.params.subscribe(routeParams => {
             this.url = routeParams["url"];
@@ -24,12 +27,13 @@ export class BirthPlaceComponent extends BaseComponent  implements OnInit {
     }
 
     ngOnInit(): void {
-        
+
     }
 
     public init(): void {
-        this.service.GETBirthPlace(this.url,0).subscribe((res:any)=>{
+        this.service.GETBirthPlace(this.url, 0).subscribe((res: any) => {
             this.DataSource = res;
+            this.titleService.setTitle(`${this.DataSource?.title} - Famous Populer Birthdays`);
         })
     }
 }

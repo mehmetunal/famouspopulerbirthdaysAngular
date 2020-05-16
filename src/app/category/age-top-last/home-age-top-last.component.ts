@@ -3,6 +3,7 @@ import { HomeService } from 'src/services/home.services';
 import { CategoryService } from 'src/services/category.services';
 import { BaseComponent } from 'src/app/base.component';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-home-age-top-last',
@@ -13,7 +14,8 @@ import { Router } from '@angular/router';
 export class HomeAgeTopLastComponent extends BaseComponent implements OnInit {
     public DataSource: any;
     public page: number = 0;
-    constructor(private service: CategoryService) {
+    constructor(private service: CategoryService,
+        private titleService:Title) {
         super();
     }
 
@@ -24,6 +26,7 @@ export class HomeAgeTopLastComponent extends BaseComponent implements OnInit {
     public init(): void {
         this.service.GETYearTopLast(this.page).subscribe((res: any) => {
             this.DataSource = res;
+            this.titleService.setTitle(`${this.DataSource?.Title} - Famous Populer Birthdays`);
         })
     }
 }

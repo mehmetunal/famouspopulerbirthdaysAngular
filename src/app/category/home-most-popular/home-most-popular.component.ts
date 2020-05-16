@@ -3,6 +3,7 @@ import { HomeService } from 'src/services/home.services';
 import { CategoryService } from 'src/services/category.services';
 import { BaseComponent } from 'src/app/base.component';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-home-most-popular',
@@ -14,8 +15,10 @@ export class HomeMostPopularComponent extends BaseComponent implements OnInit {
     public DataSource: any;
     public page: number = 0;
     public title: string = "Most Popular";
-    constructor(private service: CategoryService) {
+    constructor(private service: CategoryService,
+        private titleService:Title) {
         super();
+        this.titleService.setTitle(`${this.title} - Famous Populer Birthdays`);
     }
 
     ngOnInit(): void {

@@ -3,6 +3,7 @@ import { CategoryService } from 'src/services/category.services';
 import { HomeService } from 'src/services/home.services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BaseComponent } from 'src/app/base.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-age',
@@ -15,7 +16,7 @@ export class AgeComponent extends BaseComponent implements OnInit {
     public DataSource: any;
     private url: string;
 
-    constructor(private route: ActivatedRoute, private service: CategoryService) {
+    constructor(private route: ActivatedRoute, private service: CategoryService, private titleService: Title) {
         super();
         this.route.params.subscribe(routeParams => {
             this.url = routeParams["url"];
@@ -30,6 +31,7 @@ export class AgeComponent extends BaseComponent implements OnInit {
     public init(): void {
         this.service.GETAge(this.url, 0).subscribe((res: any) => {
             this.DataSource = res;
+            this.titleService.setTitle(`${this.DataSource?.title} - Famous Populer Birthdays`);
         })
     }
 }

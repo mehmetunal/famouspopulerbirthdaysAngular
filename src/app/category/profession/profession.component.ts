@@ -1,6 +1,7 @@
 import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/services/category.services';
 import { ChildBaseComponent } from 'src/app/child-base.component.';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-profession',
@@ -11,8 +12,10 @@ import { ChildBaseComponent } from 'src/app/child-base.component.';
 export class ProfessionComponent extends ChildBaseComponent implements OnInit {
     public DataSource: any;
     public title: string = "Professions";
-    constructor(private service: CategoryService) {
+    constructor(private service: CategoryService,
+        private titleService: Title) {
         super();
+        this.titleService.setTitle(`${this.title} - Famous Populer Birthdays`);
     }
 
     ngOnInit(): void {

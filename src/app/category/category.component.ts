@@ -1,6 +1,7 @@
 import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BaseComponent } from '../base.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-category',
@@ -13,7 +14,8 @@ export class CategoryComponent extends BaseComponent implements OnInit {
     public title: string;
     private url: string;
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute,
+        private titleService: Title) {
         super();
         this.route.params.subscribe(routeParams => {
             this.url = routeParams["url"];
@@ -30,6 +32,7 @@ export class CategoryComponent extends BaseComponent implements OnInit {
             this.DataSource = res;
             if (res) {
                 this.title = res[0].pop_grup;
+                this.titleService.setTitle(`${this.title} - Famous Populer Birthdays`);
             }
         })
     }

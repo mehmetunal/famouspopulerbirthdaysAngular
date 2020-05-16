@@ -2,6 +2,7 @@ import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/services/category.services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BaseComponent } from 'src/app/base.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-sun-sign',
@@ -14,7 +15,9 @@ export class SunSignComponent extends BaseComponent implements OnInit {
     public DataSource: any;
     private url: string;
 
-    constructor(private route: ActivatedRoute, private service: CategoryService) {
+    constructor(private route: ActivatedRoute,
+        private service: CategoryService,
+        private titleService:Title) {
         super();
         this.route.params.subscribe(routeParams => {
             this.url = routeParams["url"];
@@ -28,6 +31,7 @@ export class SunSignComponent extends BaseComponent implements OnInit {
 
     public init(): void {
         this.service.GETSunSign(this.url, 0).subscribe((res: any) => {
+            this.titleService.setTitle(`${this.DataSource?.title} - Famous Populer Birthdays`);
             this.DataSource = res;
         })
     }

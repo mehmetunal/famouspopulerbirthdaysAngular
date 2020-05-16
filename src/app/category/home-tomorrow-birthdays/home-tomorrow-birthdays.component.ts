@@ -1,6 +1,7 @@
 import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/services/category.services';
 import { BaseComponent } from 'src/app/base.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-home-tomorrow-birthdays',
@@ -12,8 +13,10 @@ export class HomeTomorrowBirthdaysComponent extends BaseComponent implements OnI
     public DataSource: any;
     public page: number = 0;
     public title: string = "Tomorrow's Birthdays";
-    constructor(private service: CategoryService) {
+    constructor(private service: CategoryService,
+        private titleService:Title) {
         super();
+        this.titleService.setTitle(`${this.title} - Famous Populer Birthdays`);
     }
 
     ngOnInit(): void {

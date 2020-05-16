@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -47,6 +47,8 @@ import { MobileHeaderComponent } from './toolbar/header/mobile/mobile-header.com
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { HomeTrendingComponent } from './home/home-trending/home-trending.component';
 import { AdsenseModule } from 'ng2-adsense';
+import { NgxJsonLdComponent } from './shared/json-ld/ngx-json-ld.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -83,7 +85,8 @@ import { AdsenseModule } from 'ng2-adsense';
     LoadingComponent,
     ThousandSuffixesPipe,
     OrderByPipe,
-    MobileHeaderComponent
+    MobileHeaderComponent,
+    NgxJsonLdComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +98,7 @@ import { AdsenseModule } from 'ng2-adsense';
     AdsenseModule.forRoot()
   ],
   exports: [CarouselComponent],
-  providers: [HomeService, CategoryService, AppInjector, LoaderService,
+  providers: [Title, HomeService, CategoryService, AppInjector, LoaderService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,

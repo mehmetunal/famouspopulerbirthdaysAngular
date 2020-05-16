@@ -1,6 +1,7 @@
 import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/services/category.services';
 import { BaseComponent } from 'src/app/base.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-to-days-birth-days',
@@ -12,7 +13,8 @@ export class ToDaysBirthDaysComponent extends BaseComponent implements OnInit {
 
     public DataSource: any;
 
-    constructor(private service: CategoryService) {
+    constructor(private service: CategoryService,
+        private titleService:Title) {
         super();
     }
 
@@ -23,6 +25,7 @@ export class ToDaysBirthDaysComponent extends BaseComponent implements OnInit {
     public init(): void {
         this.service.GETTodayTop1000(0).subscribe((res: any) => {
             this.DataSource = res;
+            this.titleService.setTitle(`${this.DataSource?.title} - Famous Populer Birthdays`);
         })
     }
 }
