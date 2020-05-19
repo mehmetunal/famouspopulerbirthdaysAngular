@@ -1,0 +1,10 @@
+.paging-prev {
+    font-size: 24px;
+    font-weight: 400;
+    padding-left: 6px;
+}
+.paging-next {
+    font-size: 24px;
+    font-weight: 400;
+    padding-right: 6px;
+}

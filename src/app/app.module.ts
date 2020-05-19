@@ -49,6 +49,7 @@ import { HomeTrendingComponent } from './home/home-trending/home-trending.compon
 import { AdsenseModule } from 'ng2-adsense';
 import { NgxJsonLdComponent } from './shared/json-ld/ngx-json-ld.component';
 import { DatePipe } from '@angular/common';
+import { PagingComponent } from './toolbar/paging/paging.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { DatePipe } from '@angular/common';
     ThousandSuffixesPipe,
     OrderByPipe,
     MobileHeaderComponent,
+    PagingComponent,
     NgxJsonLdComponent
   ],
   imports: [

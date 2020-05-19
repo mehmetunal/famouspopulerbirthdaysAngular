@@ -20,8 +20,8 @@ export class CategoryService {
     }
 
     // /api/category/GETProfessionGrup
-    public GETProfessionGrup(): Observable<any> {
-        return this.http.get(`${this.baseApiUrl}GETProfessionGrup`).pipe(map(result => result));
+    public GETProfessionGrup(page: number = 0, pageSize: number = 48): Observable<any> {
+        return this.http.get(`${this.baseApiUrl}GETProfessionGrup/${page}/${pageSize}`).pipe(map(result => result));
     }
 
     // /api/category/GETYoutubeStar

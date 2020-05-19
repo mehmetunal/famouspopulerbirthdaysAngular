@@ -13,6 +13,7 @@ export class TrendingComponent extends BaseComponent implements OnInit {
 
     public DataSource: any;
     public title: string = "Trending";
+    public pageSize: number = 120;
 
     constructor(private service: CategoryService,
         private titleService: Title) {
@@ -25,7 +26,12 @@ export class TrendingComponent extends BaseComponent implements OnInit {
     }
 
     public init(): void {
-        this.service.GETTrending(0, 120).subscribe((res: any) => {
+        this.DataLoad(0);
+    }
+
+    public DataLoad(page: number) {
+        debugger;
+        this.service.GETTrending(page, this.pageSize).subscribe((res: any) => {
             this.DataSource = res;
         })
     }

@@ -12,6 +12,7 @@ import { Title } from '@angular/platform-browser';
 export class ProfessionComponent extends ChildBaseComponent implements OnInit {
     public DataSource: any;
     public title: string = "Professions";
+    public pageSize: number = 48;
     constructor(private service: CategoryService,
         private titleService: Title) {
         super();
@@ -23,7 +24,11 @@ export class ProfessionComponent extends ChildBaseComponent implements OnInit {
     }
 
     public init(): void {
-        this.service.GETProfessionGrup().subscribe((res: any) => {
+        this.DataLoad(0);
+    }
+
+    public DataLoad(page: number): void {
+        this.service.GETProfessionGrup(page, this.pageSize).subscribe((res: any) => {
             this.DataSource = res;
         })
     }

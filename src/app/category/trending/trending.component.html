@@ -1,15 +1,16 @@
 <main [className]="isDevice?'container':'container pt-61'">
     <div class="form-group pt-31 text-center">
-       <!-- Yatay_Esnek -->
-       <ng-adsense [adClient]="'ca-pub-7545098926180612'" [adSlot]="9232589350" [display]="'block'" [adFormat]="'auto'"
-       [className]="'adsbygoogle'">
-   </ng-adsense>
+        <!-- Yatay_Esnek -->
+        <ng-adsense [adClient]="'ca-pub-7545098926180612'" [adSlot]="9232589350" [display]="'block'" [adFormat]="'auto'"
+            [className]="'adsbygoogle'">
+        </ng-adsense>
     </div>
     <div class="col-md-12" *ngIf="DataSource">
         <h3 class="text-center page-title">{{title}}</h3>
         <div class="nrow form-group">
-            <a *ngFor="let item of DataSource; index as i; first as isFirst;" [routerLink]="['/people/'+item.link]"
-                class="d-b position-relative category-person-item-small" title="{{item.peo_name}}">
+            <a *ngFor="let item of DataSource?.data; index as i; first as isFirst;"
+                [routerLink]="['/people/'+item.link]" class="d-b position-relative category-person-item-small"
+                title="{{item.peo_name}}">
                 <img [className]="isDevice ? 'card-img-top people-big-img' : 'card-img-top people-big-img-mobile'"
                     src="{{item.peo_jpg | firstImages}}"
                     default="http://www.famouspopulerbirthdays.com/upload/faces/large-default.jpg"
@@ -20,5 +21,6 @@
                 </div>
             </a>
         </div>
+        <app-paging [Prev]="DataSource?.prev" [Next]="DataSource?.next" (onClick)="DataLoad($event)"></app-paging>
     </div>
 </main>
