@@ -17,8 +17,7 @@ export class BirthPlaceComponent extends BaseComponent implements OnInit {
     private url: string;
 
     constructor(private route: ActivatedRoute,
-        private service: CategoryService,
-        private titleService: Title) {
+        private service: CategoryService) {
         super();
         this.route.params.subscribe(routeParams => {
             this.url = routeParams["url"];
@@ -33,7 +32,8 @@ export class BirthPlaceComponent extends BaseComponent implements OnInit {
     public init(): void {
         this.service.GETBirthPlace(this.url, 0).subscribe((res: any) => {
             this.DataSource = res;
-            this.titleService.setTitle(`${this.DataSource?.title} - Famous Populer Birthdays`);
+            this.seoModel.title = this.DataSource?.title;
+            this.seoInit();
         })
     }
 }

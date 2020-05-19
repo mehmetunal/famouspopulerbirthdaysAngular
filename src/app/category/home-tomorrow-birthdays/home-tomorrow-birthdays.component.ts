@@ -13,10 +13,10 @@ export class HomeTomorrowBirthdaysComponent extends BaseComponent implements OnI
     public DataSource: any;
     public page: number = 0;
     public title: string = "Tomorrow's Birthdays";
-    constructor(private service: CategoryService,
-        private titleService:Title) {
+    constructor(private service: CategoryService) {
         super();
-        this.titleService.setTitle(`${this.title} - Famous Populer Birthdays`);
+        this.seoModel.title = this.title;
+        this.seoInit();
     }
 
     ngOnInit(): void {

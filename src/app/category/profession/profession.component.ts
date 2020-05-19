@@ -13,10 +13,10 @@ export class ProfessionComponent extends ChildBaseComponent implements OnInit {
     public DataSource: any;
     public title: string = "Professions";
     public pageSize: number = 48;
-    constructor(private service: CategoryService,
-        private titleService: Title) {
+    constructor(private service: CategoryService) {
         super();
-        this.titleService.setTitle(`${this.title} - Famous Populer Birthdays`);
+        this.seoModel.title = this.title;
+        this.seoInit();
     }
 
     ngOnInit(): void {

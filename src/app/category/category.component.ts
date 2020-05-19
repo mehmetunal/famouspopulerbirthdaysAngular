@@ -14,8 +14,7 @@ export class CategoryComponent extends BaseComponent implements OnInit {
     public title: string;
     private url: string;
 
-    constructor(private route: ActivatedRoute,
-        private titleService: Title) {
+    constructor(private route: ActivatedRoute) {
         super();
         this.route.params.subscribe(routeParams => {
             this.url = routeParams["url"];
@@ -24,7 +23,7 @@ export class CategoryComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // this.init();
+
     }
 
     public init(): void {
@@ -32,7 +31,8 @@ export class CategoryComponent extends BaseComponent implements OnInit {
             this.DataSource = res;
             if (res) {
                 this.title = res[0].pop_grup;
-                this.titleService.setTitle(`${this.title} - Famous Populer Birthdays`);
+                this.seoModel.title = this.title;
+                this.seoInit();
             }
         })
     }

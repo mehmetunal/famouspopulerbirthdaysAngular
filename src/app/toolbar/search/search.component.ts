@@ -1,5 +1,5 @@
 import { ViewEncapsulation, Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import {  Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HomeService } from 'src/services/home.services';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -39,7 +39,6 @@ export class SearchComponent implements OnInit {
   }
 
   public onselectClient(term: string): void {
-    debugger;
     this.clients = null;
     this.searchInput.nativeElement.value = '';
     this.router.navigate([`/people/${term}`])

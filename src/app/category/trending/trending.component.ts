@@ -15,10 +15,10 @@ export class TrendingComponent extends BaseComponent implements OnInit {
     public title: string = "Trending";
     public pageSize: number = 120;
 
-    constructor(private service: CategoryService,
-        private titleService: Title) {
+    constructor(private service: CategoryService) {
         super();
-        this.titleService.setTitle(`${this.title} - Famous Populer Birthdays`);
+        this.seoModel.title = this.title;
+        this.seoInit();
     }
 
     ngOnInit(): void {
@@ -30,7 +30,6 @@ export class TrendingComponent extends BaseComponent implements OnInit {
     }
 
     public DataLoad(page: number) {
-        debugger;
         this.service.GETTrending(page, this.pageSize).subscribe((res: any) => {
             this.DataSource = res;
         })

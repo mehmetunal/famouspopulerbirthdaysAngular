@@ -14,8 +14,7 @@ import { Title } from '@angular/platform-browser';
 export class HomeAgeTopLastComponent extends BaseComponent implements OnInit {
     public DataSource: any;
     public page: number = 0;
-    constructor(private service: CategoryService,
-        private titleService:Title) {
+    constructor(private service: CategoryService) {
         super();
     }
 
@@ -26,7 +25,8 @@ export class HomeAgeTopLastComponent extends BaseComponent implements OnInit {
     public init(): void {
         this.service.GETYearTopLast(this.page).subscribe((res: any) => {
             this.DataSource = res;
-            this.titleService.setTitle(`${this.DataSource?.Title} - Famous Populer Birthdays`);
+            this.seoModel.title = this.DataSource?.title;
+            this.seoInit();
         })
     }
 }

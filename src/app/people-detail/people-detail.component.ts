@@ -2,8 +2,6 @@ import { ViewEncapsulation, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BaseComponent } from '../base.component';
-import { Title } from '@angular/platform-browser';
-import { DatePipe } from '@angular/common';
 
 @Component({
     selector: 'app-people-detail',
@@ -25,9 +23,9 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
     private url: string;
     public hastag: string = "";
 
-    constructor(private route: ActivatedRoute,
-        private http: HttpClient,
-        private titleService: Title
+    constructor(
+        private route: ActivatedRoute,
+        private http: HttpClient
     ) {
         super();
         this.route.params.subscribe(routeParams => {
@@ -37,7 +35,6 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // this.init();
     }
     public init(): void {
         this.homeService.GETDetail(this.url).subscribe((res: any) => {
@@ -47,10 +44,15 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
 
     private DataLoad(res: any): void {
         this.DataSource = res.data;
+        
+        this.seoModel.title = this.DataSource?.peo_name;
+        this.seoModel.pageUrl = location.href;
+        this.seoModel.image = res.images[0];
+        this.seoInit();
+
         this.Images = res.images;
         this.jsonLDLoad();
         this.InstagramHashTag(res.data.peo_name);
-        this.titleService.setTitle(`${res.data.peo_name} - Famous Populer Birthdays`);
         this.GETAgeList(res.data.yas, res.data.id);
         this.GETJob(res.data.peo_title, res.data.id);
         this.GETSunSign(res.data.sun_sign, res.data.id);
@@ -67,7 +69,7 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
             "jobTitle": this.DataSource?.title,
             "name": this.DataSource?.peo_name,
             "birthPlace": this.DataSource?.peo_birthplace,
-            "birthDate":this.DataSource?.peo_birthday.toString("mediumDate"),
+            "birthDate": this.DataSource?.peo_birthday.toString("mediumDate"),
             "url": "https://www.famouspopulerbirthdays.com/people/" + this.DataSource?.link
         }
     }

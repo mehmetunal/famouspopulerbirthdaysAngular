@@ -48,8 +48,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { HomeTrendingComponent } from './home/home-trending/home-trending.component';
 import { AdsenseModule } from 'ng2-adsense';
 import { NgxJsonLdComponent } from './shared/json-ld/ngx-json-ld.component';
-import { DatePipe } from '@angular/common';
 import { PagingComponent } from './toolbar/paging/paging.component';
+import { SeoService } from 'src/services/seo.services';
 
 @NgModule({
   declarations: [
@@ -100,7 +100,7 @@ import { PagingComponent } from './toolbar/paging/paging.component';
     AdsenseModule.forRoot()
   ],
   exports: [CarouselComponent],
-  providers: [Title, HomeService, CategoryService, AppInjector, LoaderService,
+  providers: [HomeService,SeoService, CategoryService, AppInjector, LoaderService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,

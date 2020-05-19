@@ -15,10 +15,10 @@ export class HomeMostPopularComponent extends BaseComponent implements OnInit {
     public DataSource: any;
     public page: number = 0;
     public title: string = "Most Popular";
-    constructor(private service: CategoryService,
-        private titleService:Title) {
+    constructor(private service: CategoryService) {
         super();
-        this.titleService.setTitle(`${this.title} - Famous Populer Birthdays`);
+        this.seoModel.title = this.title;
+        this.seoInit();
     }
 
     ngOnInit(): void {

@@ -13,8 +13,7 @@ export class ToDaysBirthDaysComponent extends BaseComponent implements OnInit {
 
     public DataSource: any;
 
-    constructor(private service: CategoryService,
-        private titleService:Title) {
+    constructor(private service: CategoryService) {
         super();
     }
 
@@ -25,7 +24,8 @@ export class ToDaysBirthDaysComponent extends BaseComponent implements OnInit {
     public init(): void {
         this.service.GETTodayTop1000(0).subscribe((res: any) => {
             this.DataSource = res;
-            this.titleService.setTitle(`${this.DataSource?.title} - Famous Populer Birthdays`);
+            this.seoModel.title = this.DataSource?.title;
+            this.seoInit();
         })
     }
 }
