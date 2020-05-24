@@ -22,6 +22,7 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
     public enPopuler: any;
     private url: string;
     public hastag: string = "";
+    private random: boolean = true;
 
     constructor(
         private route: ActivatedRoute,
@@ -31,7 +32,11 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
         this.route.params.subscribe(routeParams => {
             this.url = routeParams["url"];
             this.init()
+            if (this.random == false) {
+                this.homeService.RandomSub.next(true);
+            }
         });
+        this.random = false;
     }
 
     ngOnInit(): void {
@@ -44,7 +49,7 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
 
     private DataLoad(res: any): void {
         this.DataSource = res.data;
-        
+
         this.seoModel.title = this.DataSource?.peo_name;
         this.seoModel.pageUrl = location.href;
         this.seoModel.image = res.images[0];

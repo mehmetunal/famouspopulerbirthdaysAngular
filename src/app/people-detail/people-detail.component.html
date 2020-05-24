@@ -81,28 +81,28 @@
         </div>
         <div class="nrow m-t-50">
             <!--( Pop Singer ) Jop-->
-            <div class="col-md-6" *ngIf="JobDataSource">
+            <div class="col-sm-12 col-xs-12 col-lg-6" *ngIf="JobDataSource">
                 <h3 class="text-center page-title">( {{DataSource?.peo_title}} ) Jop</h3>
                 <app-people-list [MoreAllURL]="'/job/'+DataSource?.joplink" [DataSource]="JobDataSource">
                 </app-people-list>
             </div>
             <!--( Pop Singer ) Jop-->
             <!--( 25 ) Age Years Old-->
-            <div class="col-md-6" *ngIf="AgeDataSource">
+            <div class="col-sm-12 col-xs-12 col-lg-6" *ngIf="AgeDataSource">
                 <h3 class="text-center page-title">( {{DataSource?.yas}} ) Age Years Old</h3>
                 <app-people-list [MoreAllURL]="'/age/'+DataSource?.yearslink" [DataSource]="AgeDataSource">
                 </app-people-list>
             </div>
             <!--( 25 ) Age Years Old-->
             <!--( Taurus ) Birth Sign-->
-            <div class="col-md-6" *ngIf="SunSignDataSource">
+            <div class="col-sm-12 col-xs-12 col-lg-6" *ngIf="SunSignDataSource">
                 <h3 class="text-center page-title">( {{DataSource?.sun_sign}} ) Birth Sign</h3>
                 <app-people-list [MoreAllURL]="'/sun-sign/'+DataSource?.sun_sign_link" [DataSource]="SunSignDataSource">
                 </app-people-list>
             </div>
             <!--( Taurus ) Birth Sign-->
             <!--Long Island , NY Birthplace-->
-            <div class="col-md-6" *ngIf="BirthPlaceDataSource">
+            <div class="col-sm-12 col-xs-12 col-lg-6" *ngIf="BirthPlaceDataSource">
                 <h3 class="text-center page-title">{{DataSource?.peo_birthplace}} Birthplace</h3>
                 <app-people-list [MoreAllURL]="'/brith-placelink/'+DataSource?.peo_birthplacelink"
                     [DataSource]="BirthPlaceDataSource"></app-people-list>

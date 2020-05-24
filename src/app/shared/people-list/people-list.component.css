@@ -1,3 +1,7 @@
-.people-img-mobile {
+
+ .people-img-mobile {
     width:192px !important
+} 
+app-people-detail app-people-list .people-img-mobile {
+    width: 176px !important;
 } 
