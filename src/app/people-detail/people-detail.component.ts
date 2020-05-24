@@ -21,6 +21,7 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
     public FamousPopularityDataSource: any;
     public enPopuler: any;
     private url: string;
+    public hastagURL:string;
     public hastag: string = "";
     private random: boolean = true;
 
@@ -83,6 +84,7 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
         if (key === undefined || key === null)
             return;
         key = key.replace(" ", "").toLowerCase();
+        this.hastagURL = key;
         this.http.get(`https://www.instagram.com/explore/tags/${key}/?__a=1`)
             .subscribe((s: any) => {
                 this.hastag += s.graphql.hashtag.edge_hashtag_to_media.count;

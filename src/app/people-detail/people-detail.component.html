@@ -17,8 +17,9 @@
             <span class="hastag-most-populer" *ngIf="enPopuler?.pop_rank"
                 title="#{{enPopuler?.pop_rank}} {{enPopuler?.pop_grup}}">#{{enPopuler?.pop_rank}}
                 {{enPopuler?.pop_grup}}</span>
-            <span class="hastag-most-populer" *ngIf="hastag" title="#{{hastag }} Instagram Hastag">#{{hastag}} Instagram
-                Hastag</span>
+            <a href="https://www.instprofil.com/hashtag/{{hastagURL}}" target="_blank" class="hastag-most-populer" *ngIf="hastag"
+                title="#{{hastag }} Instagram Hastag">#{{hastag}} Instagram
+                Hastag</a>
         </div>
         <div class="col-lg-4">
             <ul class="people-prop">

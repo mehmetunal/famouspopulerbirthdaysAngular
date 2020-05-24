@@ -156,7 +156,7 @@ ul.etikets {
   }
 }
 
-.hastag-most-populer {
+.hastag-most-populer , .hastag-most-populer:hover {
     background-color: gray;
     color: white;
     padding-top: 2px;
