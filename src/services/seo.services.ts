@@ -11,7 +11,7 @@ export class SeoService {
     constructor(private meta: Meta, private title: Title) {}
     generateTags(config: SeoModel) {
 
-        config.title = `${config.title} - Famous Populer Birthdays`;
+        config.title = `${config.title} - Famous Popular Birthdays`;
 
         config.image = `https://www.famouspopulerbirthdays.com/upload/${config.image}`;
 

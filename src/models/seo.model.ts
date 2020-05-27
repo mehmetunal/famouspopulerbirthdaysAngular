@@ -1,5 +1,5 @@
 export class SeoModel {
-    public title?: string = "Home - Famous Populer Birthdays";
+    public title?: string = "Home - Famous Popular Birthdays";
     public description?: string = "Find out today's birthdays and discover who shares your birthday. We make it simple and entertaining to learn about celebrities.";
     public keywords?: string = "Find out today,birthdays";
     public image?: string = "assets/img/logo.png";
