@@ -1,8 +1,9 @@
 <main [className]="isDevice?'container':'container pt-61'">
     <div class="form-group text-center">
-        <!-- Yatay_Esnek -->
-        <ng-adsense [adClient]="'ca-pub-7545098926180612'" [adSlot]="9232589350" [display]="'block'" [adFormat]="'auto'"
-            [className]="'adsbygoogle'">
+        <!-- REKLAM -->
+        <ng-adsense *ngIf="isDevice" [adSlot]="6506353662" [display]="'inline-block'" [width]="728" [height]="90">
+        </ng-adsense>
+        <ng-adsense *ngIf="!isDevice" [adSlot]="9232589350" [adFormat]="'auto'" [fullWidthResponsive]="true">
         </ng-adsense>
     </div>
     <!--People Detail-->
@@ -17,8 +18,8 @@
             <span class="hastag-most-populer" *ngIf="enPopuler?.pop_rank"
                 title="#{{enPopuler?.pop_rank}} {{enPopuler?.pop_grup}}">#{{enPopuler?.pop_rank}}
                 {{enPopuler?.pop_grup}}</span>
-            <a href="https://www.instprofil.com/hashtag/{{hastagURL}}" target="_blank" class="hastag-most-populer" *ngIf="hastag"
-                title="#{{hastag }} Instagram Hastag">#{{hastag}} Instagram
+            <a href="https://www.instprofil.com/hashtag/{{hastagURL}}" target="_blank" class="hastag-most-populer"
+                *ngIf="hastag" title="#{{hastag }} Instagram Hastag">#{{hastag}} Instagram
                 Hastag</a>
         </div>
         <div class="col-lg-4">

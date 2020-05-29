@@ -1,9 +1,10 @@
 <main [className]="isDevice?'container':'container pt-61'">
     <div class="form-group pt-31 text-center">
-         <!-- Yatay_Esnek -->
-         <ng-adsense [adClient]="'ca-pub-7545098926180612'" [adSlot]="9232589350" [display]="'block'" [adFormat]="'auto'"
-         [className]="'adsbygoogle'">
-     </ng-adsense>
+        <!-- REKLAM -->
+        <ng-adsense *ngIf="isDevice" [adSlot]="6506353662" [display]="'inline-block'" [width]="728" [height]="90">
+        </ng-adsense>
+        <ng-adsense *ngIf="!isDevice" [adSlot]="9232589350" [adFormat]="'auto'" [fullWidthResponsive]="true">
+        </ng-adsense>
     </div>
     <div class="col-md-12" *ngIf="DataSource">
         <app-people-list-big [DataSource]="DataSource?.data" [title]="DataSource?.title"></app-people-list-big>

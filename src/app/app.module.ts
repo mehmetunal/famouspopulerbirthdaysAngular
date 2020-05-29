@@ -46,10 +46,10 @@ import { HttpErrorInterceptor } from 'src/interceptor/http-error-interceptor.int
 import { MobileHeaderComponent } from './toolbar/header/mobile/mobile-header.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { HomeTrendingComponent } from './home/home-trending/home-trending.component';
-import { AdsenseModule } from 'ng2-adsense';
 import { NgxJsonLdComponent } from './shared/json-ld/ngx-json-ld.component';
 import { PagingComponent } from './toolbar/paging/paging.component';
 import { SeoService } from 'src/services/seo.services';
+import { AdsenseModule } from 'src/lib/adsense/public_api';
 
 @NgModule({
   declarations: [
@@ -97,10 +97,12 @@ import { SeoService } from 'src/services/seo.services';
     HttpClientModule,
     NgbModule,
     DeviceDetectorModule.forRoot(),
-    AdsenseModule.forRoot()
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-7545098926180612'
+    })
   ],
   exports: [CarouselComponent],
-  providers: [HomeService,SeoService, CategoryService, AppInjector, LoaderService,
+  providers: [HomeService, SeoService, CategoryService, AppInjector, LoaderService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,

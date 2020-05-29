@@ -30,9 +30,9 @@ export class SunSignComponent extends BaseComponent implements OnInit {
 
     public init(): void {
         this.service.GETSunSign(this.url, 0).subscribe((res: any) => {
+            this.DataSource = res;
             this.seoModel.title = this.DataSource?.title;
             this.seoInit();
-            this.DataSource = res;
         })
     }
 }

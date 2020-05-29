@@ -50,14 +50,12 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
 
     private DataLoad(res: any): void {
         this.DataSource = res.data;
-
         this.seoModel.title = this.DataSource?.peo_name;
         this.seoModel.pageUrl = location.href;
         this.seoModel.image = res.images[0];
-        this.seoInit();
-
-        this.Images = res.images;
         this.jsonLDLoad();
+        this.Images = res.images;
+        this.seoInit();
         this.InstagramHashTag(res.data.peo_name);
         this.GETAgeList(res.data.yas, res.data.id);
         this.GETJob(res.data.peo_title, res.data.id);
