@@ -1,4 +1,4 @@
-import { ViewEncapsulation, Component, OnInit } from '@angular/core';
+import { ViewEncapsulation, Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BaseComponent } from '../base.component';
@@ -9,7 +9,7 @@ import { BaseComponent } from '../base.component';
     styleUrls: ['./people-detail.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class PeopleDetailComponent extends BaseComponent implements OnInit {
+export class PeopleDetailComponent extends BaseComponent implements OnInit, AfterViewInit {
 
     public jsonLD: any;
     public DataSource: any;
@@ -21,7 +21,7 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
     public FamousPopularityDataSource: any;
     public enPopuler: any;
     private url: string;
-    public hastagURL:string;
+    public hastagURL: string;
     public hastag: string = "";
     private random: boolean = true;
 
@@ -38,6 +38,15 @@ export class PeopleDetailComponent extends BaseComponent implements OnInit {
             }
         });
         this.random = false;
+    }
+    ngAfterViewInit(): void {
+        setTimeout(() => {
+            try {
+                (window["adsbygoogle"] = window["adsbygoogle"] || []).push({});
+            } catch (e) {
+                console.error(e);
+            }
+        }, 2000);
     }
 
     ngOnInit(): void {

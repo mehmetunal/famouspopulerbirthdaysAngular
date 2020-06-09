@@ -74,7 +74,6 @@ import {
     ngOnInit(): void {
       const config = this.config;
       function use<T>(source: T, defaultValue: T): T {
-        debugger;
         return config && source !== undefined ? source : defaultValue;
       }
       this.adClient = use(this.adClient, config.adClient);

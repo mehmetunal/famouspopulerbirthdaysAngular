@@ -1,7 +1,6 @@
-import { BrowserModule, Title } from '@angular/platform-browser';
-import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -50,6 +49,7 @@ import { NgxJsonLdComponent } from './shared/json-ld/ngx-json-ld.component';
 import { PagingComponent } from './toolbar/paging/paging.component';
 import { SeoService } from 'src/services/seo.services';
 import { AdsenseModule } from 'src/lib/adsense/public_api';
+import { YaziIciAdsensPipe } from 'src/pipe/yaziIciAdsensPipe.pipe';
 
 @NgModule({
   declarations: [
@@ -86,9 +86,11 @@ import { AdsenseModule } from 'src/lib/adsense/public_api';
     LoadingComponent,
     ThousandSuffixesPipe,
     OrderByPipe,
+    YaziIciAdsensPipe,
     MobileHeaderComponent,
     PagingComponent,
-    NgxJsonLdComponent
+    NgxJsonLdComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,8 @@ import { AdsenseModule } from 'src/lib/adsense/public_api';
     DeviceDetectorModule.forRoot(),
     AdsenseModule.forRoot({
       adClient: 'ca-pub-7545098926180612'
-    })
+    }),
+    
   ],
   exports: [CarouselComponent],
   providers: [HomeService, SeoService, CategoryService, AppInjector, LoaderService,

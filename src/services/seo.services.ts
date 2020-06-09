@@ -8,8 +8,8 @@ import { Subject } from 'rxjs';
 })
 export class SeoService {
 
-    constructor(private meta: Meta, private title: Title) {}
-    generateTags(config: SeoModel) {
+    constructor(private meta: Meta, private title: Title) { }
+    generateTags(config: SeoModel) : void {
 
         config.title = `${config.title} - Famous Popular Birthdays`;
 
@@ -35,6 +35,23 @@ export class SeoService {
         console.table(config);
 
     }
+    hrefLangElement(page: string) : void {
+        if (!page) {
+            page = "https://www.famouspopulerbirthdays.com/";
+        }
+        var isDocument = document.getElementById("hreflang");
+        if (!isDocument) {
+            var meta = document.createElement('link');
+            meta.setAttribute('id', 'hreflang');
+            meta.setAttribute('rel', 'alternate');
+            meta.setAttribute('hreflang', 'en');
+            meta.setAttribute('href', page);
+            document.getElementsByTagName('head')[0].appendChild(meta);
+        } else {
+            document.getElementById("hreflang").setAttribute("href", page);
+        }
+    }
+
 
 
 }

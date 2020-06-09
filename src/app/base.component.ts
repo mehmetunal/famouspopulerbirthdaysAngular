@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HomeService } from 'src/services/home.services';
 import { AppInjector } from 'src/services/app-injector.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -17,7 +17,7 @@ export class BaseComponent {
     public isDevice: boolean = false;
     public seoModel: SeoModel;
     protected deviceInfo = null;
-
+    //@Inject(DOCUMENT) private document: any, private renderer: Renderer2
     constructor() {
         const injector = AppInjector.getInjector();
         this.homeService = injector.get(HomeService);
@@ -31,6 +31,6 @@ export class BaseComponent {
 
     public seoInit(): void {
         this.seoService.generateTags(this.seoModel);
+        this.seoService.hrefLangElement(this.seoModel.pageUrl);
     }
-
 }

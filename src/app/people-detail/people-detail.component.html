@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <p class="icerik-detail" [innerHTML]="DataSource?.peo_about"></p>
+                <p class="icerik-detail" [innerHTML]="DataSource?.peo_about | yaziIciAdsens"></p>
             </div>
             <div class="col-lg-4 text-center">
                 <!-- Kare_Esnek -->
@@ -81,7 +81,12 @@
                 </ng-adsense>
             </div>
         </div>
-        <div class="nrow m-t-50">
+        <div class="col-md-12 text-center"*ngIf="isDevice">
+            <!-- REKLAM -->
+            <ng-adsense  [adSlot]="6506353662" [display]="'inline-block'" [width]="728" [height]="90">
+            </ng-adsense>
+        </div>
+        <div class="nrow">
             <!--( Pop Singer ) Jop-->
             <div class="col-sm-12 col-xs-12 col-lg-6" *ngIf="JobDataSource">
                 <h3 class="text-center page-title">( {{DataSource?.peo_title}} ) Jop</h3>
@@ -96,6 +101,12 @@
                 </app-people-list>
             </div>
             <!--( 25 ) Age Years Old-->
+            <div class="col-md-12 text-center"*ngIf="!isDevice">
+                <!-- REKLAM -->
+                <ng-adsense [adSlot]="9232589350" [adFormat]="'auto'" [fullWidthResponsive]="true">
+                </ng-adsense>
+            </div>
+
             <!--( Taurus ) Birth Sign-->
             <div class="col-sm-12 col-xs-12 col-lg-6" *ngIf="SunSignDataSource">
                 <h3 class="text-center page-title">( {{DataSource?.sun_sign}} ) Birth Sign</h3>
