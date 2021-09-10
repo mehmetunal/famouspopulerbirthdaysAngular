@@ -15,6 +15,7 @@ import { TomorrowBirthdaysComponent } from './home/tomorrow-birthdays/tomorrow-b
 import { HomeTomorrowBirthdaysComponent } from './category/home-tomorrow-birthdays/home-tomorrow-birthdays.component';
 import { HomeAgeTopLastComponent } from './category/age-top-last/home-age-top-last.component';
 import { TrendingComponent } from './category/trending/trending.component';
+import {ContactComponent} from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: "to-days-birth-days", component: ToDaysBirthDaysComponent },
   { path: "tomorrow-birthdays", component: HomeTomorrowBirthdaysComponent },
   { path: "age-top-last", component: HomeAgeTopLastComponent },
-  { path: "trending", component: TrendingComponent }
+  { path: "trending", component: TrendingComponent },
+  { path: "contact", component: ContactComponent }
 ];
 
 @NgModule({

@@ -91,4 +91,9 @@ export class HomeService {
     public GETRandom(): Observable<any> {
         return this.http.get(`${this.baseApiUrl}GETRandom`,{  responseType: 'text' }).pipe(map((result: any) => result));
     }
+
+    //api/home/SendMessage
+  public SendMessage(form:any) :Observable<any>{
+      return this.http.post(`${this.baseApiUrl}SendMessage`,JSON.stringify(form)).pipe(map(result => result));
+  }
 }

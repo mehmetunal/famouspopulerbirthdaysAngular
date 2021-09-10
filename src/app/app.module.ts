@@ -50,6 +50,7 @@ import { PagingComponent } from './toolbar/paging/paging.component';
 import { SeoService } from 'src/services/seo.services';
 import { AdsenseModule } from 'src/lib/adsense/public_api';
 import { YaziIciAdsensPipe } from 'src/pipe/yaziIciAdsensPipe.pipe';
+import {ContactComponent} from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,7 @@ import { YaziIciAdsensPipe } from 'src/pipe/yaziIciAdsensPipe.pipe';
     MobileHeaderComponent,
     PagingComponent,
     NgxJsonLdComponent,
-    
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +103,7 @@ import { YaziIciAdsensPipe } from 'src/pipe/yaziIciAdsensPipe.pipe';
     AdsenseModule.forRoot({
       adClient: 'ca-pub-7545098926180612'
     }),
-    
+
   ],
   exports: [CarouselComponent],
   providers: [HomeService, SeoService, CategoryService, AppInjector, LoaderService,

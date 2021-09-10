@@ -3,7 +3,6 @@ import { HomeService } from 'src/services/home.services';
 import { CategoryService } from 'src/services/category.services';
 import { BaseComponent } from 'src/app/base.component';
 import { Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-home-most-popular',
